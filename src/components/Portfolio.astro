@@ -1,5 +1,5 @@
 ---
-const companies = [
+const invested = [
   {
     name: 'ClearStake',
     slug: 'clearstake',
@@ -28,6 +28,38 @@ const companies = [
     status: 'Active',
   },
 ];
+
+const accelerating = [
+  {
+    name: 'Sygnal One',
+    url: 'https://sygnalone.com',
+    description: 'Logistics visibility and AI insights platform for transport data consolidation and cost optimisation.',
+    tags: ['Logistics', 'AI', 'B2B SaaS'],
+  },
+  {
+    name: 'Acelo',
+    url: 'https://acelo.ai',
+    description: 'AI-powered sales transformation &mdash; real-time coaching and digitisation of core sales processes.',
+    tags: ['Sales Tech', 'AI', 'B2B SaaS'],
+  },
+  {
+    name: 'MOLO',
+    url: 'https://moloapp.io',
+    description: 'AI family management app that automates household tasks and reduces the parental mental load.',
+    tags: ['Consumer', 'AI', 'Family Tech'],
+  },
+  {
+    name: 'Soterra Labs',
+    url: 'https://soterralabs.co.uk',
+    description: 'AI-powered pesticide breakdown prediction for MRL compliance in global horticulture.',
+    tags: ['AgriTech', 'AI', 'Compliance'],
+  },
+];
+
+const alumni = [
+  { name: 'Architect', url: 'https://tryarchitect.com', logo: null, logoDark: null, note: 'AI-powered personalised websites' },
+  { name: 'Common Tools', url: 'https://common.tools', logo: '/logos/common-tools.svg', logoDark: '/logos/common-tools-dark.svg', note: 'New fabric for computing' },
+];
 ---
 
 <section id="portfolio" class="bg-secondary-50 dark:bg-accent-700 py-24 sm:py-32">
@@ -35,15 +67,16 @@ const companies = [
     <div class="max-w-2xl">
       <p class="text-sm font-semibold tracking-widest uppercase text-primary-500 mb-4">Portfolio</p>
       <h2 class="text-4xl font-bold tracking-tight text-secondary-500 dark:text-white">
-        Companies we're building
+        Our companies
       </h2>
       <p class="mt-6 text-lg text-secondary-400 dark:text-gray-300">
-        Each portfolio company benefits from embedded engineering support, cloud infrastructure expertise, and strategic guidance from the ExaDev team.
+        From early-stage investment through to hands-on acceleration, we support startups at every stage of their journey.
       </p>
     </div>
 
-    <div class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
-      {companies.map((company) => (
+    <h3 class="mt-16 text-sm font-semibold tracking-widest uppercase text-primary-500 mb-8">Invested</h3>
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {invested.map((company) => (
         <a href={`/portfolio/${company.slug}`} class="block rounded-2xl bg-white dark:bg-accent-600 shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow group">
           <div class="p-8">
             <div class="flex items-center justify-between mb-6">
@@ -73,6 +106,51 @@ const companies = [
             </div>
           </div>
         </a>
+      ))}
+    </div>
+
+    <h3 class="mt-20 text-sm font-semibold tracking-widest uppercase text-primary-500 mb-8">Accelerating</h3>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {accelerating.map((company) => (
+        <a href={company.url} target="_blank" rel="noopener" class="block rounded-2xl bg-white dark:bg-accent-600 shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow p-6">
+          <h4 class="text-lg font-semibold text-secondary-500 dark:text-white">{company.name}</h4>
+          <p class="mt-2 text-sm text-secondary-400 dark:text-gray-300 leading-relaxed" set:html={company.description} />
+          <div class="mt-4 flex flex-wrap gap-2">
+            {company.tags.map((tag) => (
+              <span class="inline-flex rounded-md bg-gray-100 dark:bg-accent-500 px-2.5 py-1 text-xs font-medium text-secondary-400 dark:text-gray-400">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </a>
+      ))}
+    </div>
+
+    <h3 class="mt-20 text-sm font-semibold tracking-widest uppercase text-primary-500 mb-6">Alumni</h3>
+    <div class="flex flex-wrap items-center gap-x-12 gap-y-6">
+      {alumni.map((company) => (
+        <div class="flex items-center gap-3">
+          {company.logo ? (
+            <Fragment>
+              {company.url ? (
+                <a href={company.url} target="_blank" rel="noopener" class="flex items-center hover:opacity-80 transition-opacity">
+                  <img src={company.logo} alt={company.name} class="h-7 w-auto block dark:hidden" />
+                  <img src={company.logoDark} alt={company.name} class="h-7 w-auto hidden dark:block" />
+                </a>
+              ) : (
+                <Fragment>
+                  <img src={company.logo} alt={company.name} class="h-7 w-auto block dark:hidden" />
+                  <img src={company.logoDark} alt={company.name} class="h-7 w-auto hidden dark:block" />
+                </Fragment>
+              )}
+            </Fragment>
+          ) : company.url ? (
+            <a href={company.url} target="_blank" rel="noopener" class="text-lg font-semibold text-secondary-500 dark:text-white hover:text-primary-500 dark:hover:text-primary-400 transition-colors">{company.name}</a>
+          ) : (
+            <span class="text-lg font-semibold text-secondary-500 dark:text-white">{company.name}</span>
+          )}
+          <span class="text-xs text-secondary-400 dark:text-gray-500">{company.note}</span>
+        </div>
       ))}
     </div>
   </div>
