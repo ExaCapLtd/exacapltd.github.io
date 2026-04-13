@@ -1,43 +1,44 @@
-# Astro Starter Kit: Minimal
+# ExaCap Website
+
+Portfolio website for [ExaCap Limited](https://exacapltd.github.io), the investment arm of [ExaDev](https://exadev.io).
+
+Built with [Astro](https://astro.build) and [Tailwind CSS v4](https://tailwindcss.com). Deployed to GitHub Pages.
+
+## Development
 
 ```sh
-npm create astro@latest -- --template minimal
+npm install
+npm run dev
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+Requires Node.js >= 22.12.0.
 
-## 🚀 Project Structure
+## Build
 
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
-├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+```sh
+npm run build
+npm run preview
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## Adding News Posts
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+Create a markdown file in `src/content/news/` with frontmatter:
 
-Any static assets, like images, can be placed in the `public/` directory.
+```md
+---
+title: "Post Title"
+date: 2025-01-01
+author: "ExaCap"
+summary: "Short summary for the listing page."
+---
 
-## 🧞 Commands
+Post content here.
+```
 
-All commands are run from the root of the project, from a terminal:
+## Structure
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
-
-## 👀 Want to learn more?
-
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+- `src/components/` - Astro components (Hero, Portfolio, Thesis, etc.)
+- `src/pages/` - Routes (index, team, news, portfolio detail pages)
+- `src/content/news/` - Markdown news posts
+- `src/layouts/` - Page layout
+- `public/` - Static assets (logos, team photos)
