@@ -57,8 +57,8 @@ const accelerating = [
 ];
 
 const alumni = [
-  { name: 'Architect', url: 'https://tryarchitect.com', logo: null, logoDark: null, note: 'AI-powered personalised websites' },
-  { name: 'Common Tools', url: 'https://common.tools', logo: '/logos/common-tools.svg', logoDark: '/logos/common-tools-dark.svg', note: 'New fabric for computing' },
+  { name: 'Architect', url: 'https://tryarchitect.com', note: 'AI-powered personalised websites' },
+  { name: 'Common Tools', url: 'https://common.tools', note: 'New fabric for computing' },
 ];
 ---
 
@@ -127,24 +127,10 @@ const alumni = [
     </div>
 
     <h3 class="mt-20 text-sm font-semibold tracking-widest uppercase text-primary-500 mb-6">Alumni</h3>
-    <div class="flex flex-wrap items-center gap-x-12 gap-y-6">
+    <div class="flex flex-wrap items-center gap-x-10 gap-y-4">
       {alumni.map((company) => (
         <div class="flex items-center gap-3">
-          {company.logo ? (
-            <Fragment>
-              {company.url ? (
-                <a href={company.url} target="_blank" rel="noopener" class="flex items-center hover:opacity-80 transition-opacity">
-                  <img src={company.logo} alt={company.name} class="h-7 w-auto block dark:hidden" />
-                  <img src={company.logoDark} alt={company.name} class="h-7 w-auto hidden dark:block" />
-                </a>
-              ) : (
-                <Fragment>
-                  <img src={company.logo} alt={company.name} class="h-7 w-auto block dark:hidden" />
-                  <img src={company.logoDark} alt={company.name} class="h-7 w-auto hidden dark:block" />
-                </Fragment>
-              )}
-            </Fragment>
-          ) : company.url ? (
+          {company.url ? (
             <a href={company.url} target="_blank" rel="noopener" class="text-lg font-semibold text-secondary-500 dark:text-white hover:text-primary-500 dark:hover:text-primary-400 transition-colors">{company.name}</a>
           ) : (
             <span class="text-lg font-semibold text-secondary-500 dark:text-white">{company.name}</span>
