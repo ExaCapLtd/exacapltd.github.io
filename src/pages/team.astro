@@ -1,0 +1,137 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const founders = [
+  {
+    name: 'Will Faithfull, Ph.D',
+    role: 'Co-Founder',
+    photo: '/team/will-faithfull.jpg',
+    bio: 'Co-founder of ExaDev and ExaCap. Will and Francis co-lead investment strategy and portfolio company partnerships. Long track record building B2B software startups, with a Ph.D in computer science and deep expertise in machine learning.',
+    linkedin: 'https://www.linkedin.com/in/will-faithfull/',
+  },
+  {
+    name: 'Francis Williams',
+    role: 'Co-Founder',
+    photo: '/team/francis-williams.jpg',
+    photoPosition: '30%',
+    bio: 'Co-founder of ExaDev and ExaCap. Francis and Will co-lead investment strategy and portfolio company partnerships. Long track record building B2B software startups, with deep expertise across cloud infrastructure, AI/ML, and full-stack development.',
+    linkedin: 'https://www.linkedin.com/in/francis-williams-a5940960/',
+  },
+];
+
+const partners = [
+  {
+    name: 'Ben Dickinson',
+    role: 'Partner',
+    photo: '/team/ben-dickinson.jpg',
+    linkedin: 'https://www.linkedin.com/in/benjamin-dickinson-23425016b/',
+  },
+  {
+    name: 'Joe Mearman',
+    role: 'Partner',
+    photo: '/team/joe-mearman.jpg',
+    linkedin: 'https://www.linkedin.com/in/mearman/',
+  },
+  {
+    name: 'James Jackson, Ph.D',
+    role: 'Partner',
+    photo: '/team/james-jackson.jpg',
+    linkedin: 'https://www.linkedin.com/in/jamesrobertjackson/',
+  },
+];
+---
+
+<Layout title="Team — ExaCap" description="Meet the founders and partners behind ExaCap.">
+  <section class="bg-white dark:bg-accent-800 py-24 sm:py-32">
+    <div class="mx-auto max-w-7xl px-6 lg:px-8">
+      <div class="max-w-2xl">
+        <p class="text-sm font-semibold tracking-widest uppercase text-primary-500 mb-4">Our Team</p>
+        <h1 class="text-4xl font-bold tracking-tight text-secondary-500 dark:text-white">
+          The people behind ExaCap
+        </h1>
+        <p class="mt-6 text-lg text-secondary-400 dark:text-gray-300">
+          ExaCap is led by the co-founders of ExaDev, backed by a team of 17 engineers and a growing network of investors and advisors.
+        </p>
+      </div>
+
+      <div class="mt-16">
+        <h2 class="text-2xl font-bold text-secondary-500 dark:text-white mb-8">Co-Founders</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          {founders.map((person) => (
+            <div class="rounded-2xl bg-secondary-50 dark:bg-accent-700 border border-gray-100 dark:border-gray-700 overflow-hidden flex flex-col sm:flex-row">
+              <div class="sm:w-2/5 flex-shrink-0">
+                <img
+                  src={person.photo}
+                  alt={person.name}
+                  class="w-full h-64 sm:h-full object-cover"
+                  style={person.photoPosition ? `object-position: ${person.photoPosition}` : undefined}
+                />
+              </div>
+              <div class="p-6 sm:p-8 flex flex-col justify-center">
+                <h3 class="text-xl font-semibold text-secondary-500 dark:text-white">{person.name}</h3>
+                <p class="text-sm text-primary-500 font-medium mt-1">{person.role}</p>
+                <p class="mt-4 text-sm text-secondary-400 dark:text-gray-300 leading-relaxed">{person.bio}</p>
+                <a
+                  href={person.linkedin}
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-1.5 mt-4 text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-16">
+        <h2 class="text-2xl font-bold text-secondary-500 dark:text-white mb-8">Partners</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {partners.map((person) => (
+            <div class="rounded-2xl bg-secondary-50 dark:bg-accent-700 border border-gray-100 dark:border-gray-700 overflow-hidden">
+              <img
+                src={person.photo}
+                alt={person.name}
+                class="w-full h-64 object-cover"
+              />
+              <div class="p-6">
+                <h3 class="text-lg font-semibold text-secondary-500 dark:text-white">{person.name}</h3>
+                <p class="text-sm text-primary-500 font-medium mt-1">{person.role}</p>
+                <a
+                  href={person.linkedin}
+                  target="_blank"
+                  rel="noopener"
+                  class="inline-flex items-center gap-1.5 mt-3 text-sm font-medium text-primary-500 hover:text-primary-600 transition-colors"
+                >
+                  <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <div class="mt-16 rounded-2xl bg-accent-500 dark:bg-accent-900 p-8 md:p-12">
+        <div class="md:flex md:items-center md:justify-between">
+          <div>
+            <h2 class="text-2xl font-bold text-white">Backed by 17 engineers</h2>
+            <p class="mt-2 text-gray-300">
+              Every ExaCap partnership comes with the full weight of ExaDev's engineering team &mdash; principal engineers, AI specialists, infrastructure experts, and more.
+            </p>
+          </div>
+          <a
+            href="https://exadev.io/about"
+            target="_blank"
+            rel="noopener"
+            class="mt-6 md:mt-0 inline-flex rounded-lg bg-primary-400 px-6 py-3 text-sm font-semibold text-secondary-500 hover:bg-primary-500 transition-colors whitespace-nowrap"
+          >
+            Meet the ExaDev Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

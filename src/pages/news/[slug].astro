@@ -1,0 +1,55 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export async function getStaticPaths() {
+  const postFiles = import.meta.glob('../../content/news/*.md', { eager: true }) as Record<string, any>;
+  return Object.entries(postFiles).map(([path, post]) => {
+    const slug = path.split('/').pop()?.replace('.md', '');
+    return {
+      params: { slug },
+      props: { post },
+    };
+  });
+}
+
+const { post } = Astro.props;
+const { title, date, author, summary } = post.frontmatter;
+const Content = post.Content;
+const formattedDate = new Date(date).toLocaleDateString('en-GB', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<Layout title={`${title} — ExaCap`} description={summary || title}>
+  <article class="bg-white dark:bg-accent-800 py-24 sm:py-32">
+    <div class="mx-auto max-w-3xl px-6 lg:px-8">
+      <a href="/news" class="inline-flex items-center gap-2 text-sm text-primary-500 hover:text-primary-600 font-medium mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        All News
+      </a>
+
+      <div class="flex items-center gap-4 text-sm text-secondary-400 dark:text-gray-400 mb-6">
+        <time datetime={date}>{formattedDate}</time>
+        {author && (
+          <>
+            <span>&middot;</span>
+            <span>{author}</span>
+          </>
+        )}
+      </div>
+
+      <h1 class="text-4xl font-bold tracking-tight text-secondary-500 dark:text-white">{title}</h1>
+
+      <div class="mt-12 prose prose-lg dark:prose-invert max-w-none
+        prose-headings:text-secondary-500 dark:prose-headings:text-white
+        prose-p:text-secondary-400 dark:prose-p:text-gray-300
+        prose-li:text-secondary-400 dark:prose-li:text-gray-300
+        prose-a:text-primary-500 prose-a:no-underline hover:prose-a:text-primary-600
+        prose-strong:text-secondary-500 dark:prose-strong:text-white">
+        <Content />
+      </div>
+    </div>
+  </article>
+</Layout>

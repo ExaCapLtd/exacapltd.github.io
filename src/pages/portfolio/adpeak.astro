@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="AdPeak — ExaCap Portfolio" description="AdPeak: AI-powered Google Ads optimisation for large e-commerce catalogues.">
+  <section class="bg-white dark:bg-accent-800 py-24 sm:py-32">
+    <div class="mx-auto max-w-4xl px-6 lg:px-8">
+      <a href="/#portfolio" class="inline-flex items-center gap-2 text-sm text-primary-500 hover:text-primary-600 font-medium mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Back to Portfolio
+      </a>
+
+      <div class="flex items-center gap-6 mb-8">
+        <img src="/logos/adpeak.png" alt="AdPeak" class="h-14 w-auto block dark:hidden" />
+        <img src="/logos/adpeak-dark.png" alt="AdPeak" class="h-14 w-auto hidden dark:block" />
+        <span class="inline-flex items-center rounded-full bg-green-50 dark:bg-green-900/30 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-400">Active</span>
+      </div>
+
+      <h1 class="text-4xl font-bold tracking-tight text-secondary-500 dark:text-white">AdPeak</h1>
+      <p class="mt-4 text-xl text-secondary-400 dark:text-gray-300">
+        AI-powered Google Ads optimisation for large e-commerce catalogues.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-2">
+        {['AdTech', 'AI/ML', 'E-Commerce', 'B2B SaaS', 'Google Ads'].map(tag => (
+          <span class="inline-flex rounded-md bg-gray-100 dark:bg-accent-600 px-3 py-1.5 text-xs font-medium text-secondary-400 dark:text-gray-400">{tag}</span>
+        ))}
+      </div>
+
+      <div class="mt-12 prose prose-lg dark:prose-invert max-w-none">
+        <h2 class="text-2xl font-bold text-secondary-500 dark:text-white">Overview</h2>
+        <p class="text-secondary-400 dark:text-gray-300">
+          AdPeak autonomously manages PPC campaigns for e-commerce businesses with large product catalogues. Traditional agencies and tools focus on hero products, leaving the long tail underserved. AdPeak's AI optimises spend across entire catalogues, maximising return on every product listing.
+        </p>
+
+        <h2 class="text-2xl font-bold text-secondary-500 dark:text-white mt-10">How ExaCap Helps</h2>
+        <ul class="space-y-3 text-secondary-400 dark:text-gray-300">
+          <li>ExaCap is a co-founder &mdash; AdPeak was identified and launched by the ExaDev team</li>
+          <li>Full product build from zero: architecture, ML pipeline, UI, and infrastructure</li>
+          <li>AI/ML engineering for autonomous bid optimisation and catalogue analysis</li>
+          <li>Cloud infrastructure and data pipeline engineering</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-secondary-500 dark:text-white mt-10">Key Metrics</h2>
+        <div class="not-prose grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+          <div class="rounded-xl bg-secondary-50 dark:bg-accent-700 p-6 text-center">
+            <p class="text-2xl font-bold text-primary-500">40%</p>
+            <p class="text-sm text-secondary-400 dark:text-gray-400 mt-1">ExaCap Ownership</p>
+          </div>
+          <div class="rounded-xl bg-secondary-50 dark:bg-accent-700 p-6 text-center">
+            <p class="text-2xl font-bold text-primary-500">Active</p>
+            <p class="text-sm text-secondary-400 dark:text-gray-400 mt-1">Status</p>
+          </div>
+          <div class="rounded-xl bg-secondary-50 dark:bg-accent-700 p-6 text-center">
+            <p class="text-2xl font-bold text-primary-500">Co-Founded</p>
+            <p class="text-sm text-secondary-400 dark:text-gray-400 mt-1">Engagement Type</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</Layout>

@@ -1,0 +1,79 @@
+---
+const companies = [
+  {
+    name: 'ClearStake',
+    slug: 'clearstake',
+    logo: '/logos/clearstake.png',
+    logoDark: '/logos/clearstake-dark.png',
+    description: 'Open banking-powered affordability and risk assessment for the gambling industry. ClearStake provides real-time financial checks that protect consumers while keeping operators compliant with regulatory requirements.',
+    tags: ['FinTech', 'RegTech', 'Open Banking', 'B2B SaaS'],
+    status: 'Active',
+  },
+  {
+    name: 'AdPeak',
+    slug: 'adpeak',
+    logo: '/logos/adpeak.png',
+    logoDark: '/logos/adpeak-dark.png',
+    description: 'AI-powered Google Ads optimisation for large e-commerce catalogues. AdPeak autonomously manages PPC campaigns, maximising spend efficiency across entire product ranges &mdash; not just hero products.',
+    tags: ['AdTech', 'AI/ML', 'E-Commerce', 'B2B SaaS'],
+    status: 'Active',
+  },
+  {
+    name: 'Innov-8',
+    slug: 'innov8',
+    logo: '/logos/innov8.png',
+    logoDark: '/logos/innov8-light.png',
+    description: 'Panel management platform for field service operations. Innov-8 consolidates agency relationships, automates case allocation, and provides real-time performance tracking across energy, utilities, and financial services.',
+    tags: ['Field Services', 'Utilities', 'Panel Management', 'B2B SaaS'],
+    status: 'Active',
+  },
+];
+---
+
+<section id="portfolio" class="bg-secondary-50 dark:bg-accent-700 py-24 sm:py-32">
+  <div class="mx-auto max-w-7xl px-6 lg:px-8">
+    <div class="max-w-2xl">
+      <p class="text-sm font-semibold tracking-widest uppercase text-primary-500 mb-4">Portfolio</p>
+      <h2 class="text-4xl font-bold tracking-tight text-secondary-500 dark:text-white">
+        Companies we're building
+      </h2>
+      <p class="mt-6 text-lg text-secondary-400 dark:text-gray-300">
+        Each portfolio company benefits from embedded engineering support, cloud infrastructure expertise, and strategic guidance from the ExaDev team.
+      </p>
+    </div>
+
+    <div class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8">
+      {companies.map((company) => (
+        <a href={`/portfolio/${company.slug}`} class="block rounded-2xl bg-white dark:bg-accent-600 shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow group">
+          <div class="p-8">
+            <div class="flex items-center justify-between mb-6">
+              <div class="h-12 flex items-center">
+                <img
+                  src={company.logo}
+                  alt={company.name}
+                  class="h-10 w-auto max-w-[160px] object-contain block dark:hidden"
+                />
+                <img
+                  src={company.logoDark}
+                  alt={company.name}
+                  class="h-10 w-auto max-w-[160px] object-contain hidden dark:block"
+                />
+              </div>
+              <span class="inline-flex items-center rounded-full bg-green-50 dark:bg-green-900/30 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-400">
+                {company.status}
+              </span>
+            </div>
+            <p class="text-sm text-secondary-400 dark:text-gray-300 leading-relaxed" set:html={company.description} />
+            <div class="mt-6 flex flex-wrap gap-2">
+              {company.tags.map((tag) => (
+                <span class="inline-flex rounded-md bg-gray-100 dark:bg-accent-500 px-2.5 py-1 text-xs font-medium text-secondary-400 dark:text-gray-400">
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </a>
+      ))}
+    </div>
+  </div>
+</section>
