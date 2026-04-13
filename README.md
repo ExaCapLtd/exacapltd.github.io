@@ -1,3 +1,5 @@
+> **TODO:** The site is currently blocked from search engine indexing (`robots.txt` and `noindex` meta tag). Remove `public/robots.txt` and the `<meta name="robots">` tag in `src/layouts/Layout.astro` when the content is finalised and ready to go public.
+
 # ExaCap Website
 
 Portfolio website for [ExaCap Limited](https://exacapltd.github.io), the investment arm of [ExaDev](https://exadev.io).
