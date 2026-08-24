@@ -1,10 +1,14 @@
 ---
+// Logos are sized by equal optical area rather than equal height, so a long
+// wordmark and a compact mark carry the same visual weight on the card.
+// height = sqrt(4624 / aspectRatio), measured from each trimmed asset.
 const invested = [
   {
     name: 'ClearStake',
     slug: 'clearstake',
     logo: '/logos/clearstake.png',
     logoDark: '/logos/clearstake-dark.png',
+    logoHeight: 27,
     description: 'Open banking-powered affordability and risk assessment for the gambling industry. ClearStake provides real-time financial checks that protect consumers while keeping operators compliant with regulatory requirements.',
     tags: ['FinTech', 'RegTech', 'Open Banking', 'B2B SaaS'],
     status: 'Active',
@@ -15,6 +19,7 @@ const invested = [
     slug: 'adpeak',
     logo: '/logos/adpeak.png',
     logoDark: '/logos/adpeak-dark.png',
+    logoHeight: 34,
     description: 'AI-powered Google Ads optimisation for large e-commerce catalogues. AdPeak autonomously manages PPC campaigns, maximising spend efficiency across entire product ranges &mdash; not just hero products.',
     tags: ['AdTech', 'AI/ML', 'E-Commerce', 'B2B SaaS'],
     status: 'Active',
@@ -25,48 +30,23 @@ const invested = [
     slug: 'innov8',
     logo: '/logos/innov8.png',
     logoDark: '/logos/innov8-light.png',
+    logoHeight: 35,
     description: 'Panel management platform for field service operations. Innov-8 consolidates agency relationships, automates case allocation, and provides real-time performance tracking across energy, utilities, and financial services.',
     tags: ['Field Services', 'Utilities', 'Panel Management', 'B2B SaaS'],
     status: 'Active',
     flag: '🇬🇧',
   },
-];
-
-const accelerating = [
   {
-    name: 'Sygnal One',
-    url: 'https://sygnalone.com',
-    description: 'Logistics visibility and AI insights platform for transport data consolidation and cost optimisation.',
-    tags: ['Logistics', 'AI', 'B2B SaaS'],
-    flag: '🇳🇱',
-  },
-  {
-    name: 'Acelo',
-    url: 'https://acelo.ai',
-    description: 'AI-powered sales transformation &mdash; real-time coaching and digitisation of core sales processes.',
-    tags: ['Sales Tech', 'AI', 'B2B SaaS'],
+    name: 'TOGL',
+    slug: 'togl',
+    logo: '/logos/togl.svg',
+    logoDark: '/logos/togl-dark.svg',
+    logoHeight: 34,
+    description: 'Depot flexibility software for electric fleets. TOGL optimises charging against grid capacity, time-of-use tariffs, and departure schedules &mdash; cutting energy cost and fitting more vehicles onto an existing connection.',
+    tags: ['Energy', 'EV Infrastructure', 'Fleet Tech', 'B2B SaaS'],
+    status: 'Active',
     flag: '🇬🇧',
   },
-  {
-    name: 'MOLO',
-    url: 'https://moloapp.io',
-    description: 'AI family management app that automates household tasks and reduces the parental mental load.',
-    tags: ['Consumer', 'AI', 'Family Tech'],
-    flag: '🇬🇧',
-  },
-  {
-    name: 'Soterra Labs',
-    url: 'https://soterralabs.co.uk',
-    description: 'AI-powered pesticide breakdown prediction for MRL compliance in global horticulture.',
-    tags: ['AgriTech', 'AI', 'Compliance'],
-    flag: '🇬🇧',
-  },
-];
-
-const alumni = [
-  { name: 'Architect', url: 'https://tryarchitect.com', note: 'AI-powered personalised websites', flag: '🇺🇸' },
-  { name: 'Common Tools', url: 'https://common.tools', note: 'New fabric for computing', flag: '🇺🇸' },
-  { name: 'Dragonfly Thinking', url: 'https://www.dragonflythinking.com', note: 'AI-powered strategic intelligence', flag: '🇦🇺' },
 ];
 ---
 
@@ -75,15 +55,14 @@ const alumni = [
     <div class="max-w-2xl">
       <p class="text-sm font-semibold tracking-widest uppercase text-primary-500 mb-4">Portfolio</p>
       <h2 class="text-4xl font-bold tracking-tight text-secondary-500 dark:text-white">
-        Our companies
+        Our investments
       </h2>
       <p class="mt-6 text-lg text-secondary-400 dark:text-gray-300">
-        From early-stage investment through to hands-on acceleration, we support startups at every stage of their journey.
+        We back a small number of B2B software companies and build alongside them &mdash; capital, cloud infrastructure, and a dedicated engineering team from day one.
       </p>
     </div>
 
-    <h3 class="mt-16 text-sm font-semibold tracking-widest uppercase text-primary-500 mb-8">Invested</h3>
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 gap-8">
       {invested.map((company) => (
         <a href={`/portfolio/${company.slug}`} class="block rounded-2xl bg-white dark:bg-accent-600 shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow group">
           <div class="p-8">
@@ -92,12 +71,14 @@ const alumni = [
                 <img
                   src={company.logo}
                   alt={company.name}
-                  class="h-10 w-auto max-w-[160px] object-contain block dark:hidden"
+                  style={`height:${company.logoHeight}px`}
+                  class="w-auto object-contain block dark:hidden"
                 />
                 <img
                   src={company.logoDark}
                   alt={company.name}
-                  class="h-10 w-auto max-w-[160px] object-contain hidden dark:block"
+                  style={`height:${company.logoHeight}px`}
+                  class="w-auto object-contain hidden dark:block"
                 />
               </div>
               <div class="flex items-center gap-2">
@@ -117,37 +98,6 @@ const alumni = [
             </div>
           </div>
         </a>
-      ))}
-    </div>
-
-    <h3 class="mt-20 text-sm font-semibold tracking-widest uppercase text-primary-500 mb-8">Accelerating</h3>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {accelerating.map((company) => (
-        <a href={company.url} target="_blank" rel="noopener" class="block rounded-2xl bg-white dark:bg-accent-600 shadow-sm border border-gray-100 dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow p-6">
-          <h4 class="text-lg font-semibold text-secondary-500 dark:text-white">{company.name} <span class="text-base">{company.flag}</span></h4>
-          <p class="mt-2 text-sm text-secondary-400 dark:text-gray-300 leading-relaxed" set:html={company.description} />
-          <div class="mt-4 flex flex-wrap gap-2">
-            {company.tags.map((tag) => (
-              <span class="inline-flex rounded-md bg-gray-100 dark:bg-accent-500 px-2.5 py-1 text-xs font-medium text-secondary-400 dark:text-gray-400">
-                {tag}
-              </span>
-            ))}
-          </div>
-        </a>
-      ))}
-    </div>
-
-    <h3 class="mt-20 text-sm font-semibold tracking-widest uppercase text-primary-500 mb-6">Alumni</h3>
-    <div class="flex flex-wrap items-center gap-x-10 gap-y-4">
-      {alumni.map((company) => (
-        <div class="flex items-center gap-3">
-          {company.url ? (
-            <a href={company.url} target="_blank" rel="noopener" class="text-lg font-semibold text-secondary-500 dark:text-white hover:text-primary-500 dark:hover:text-primary-400 transition-colors">{company.name} <span class="text-base">{company.flag}</span></a>
-          ) : (
-            <span class="text-lg font-semibold text-secondary-500 dark:text-white">{company.name} <span class="text-base">{company.flag}</span></span>
-          )}
-          <span class="text-xs text-secondary-400 dark:text-gray-500">{company.note}</span>
-        </div>
       ))}
     </div>
   </div>

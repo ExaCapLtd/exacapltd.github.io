@@ -1,0 +1,75 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="TOGL — ExaCap Portfolio" description="TOGL: Depot flexibility software for electric fleets — cutting charging cost and fitting more vehicles onto an existing grid connection.">
+  <section class="bg-white dark:bg-accent-800 py-24 sm:py-32">
+    <div class="mx-auto max-w-4xl px-6 lg:px-8">
+      <a href="/#portfolio" class="inline-flex items-center gap-2 text-sm text-primary-500 hover:text-primary-600 font-medium mb-8">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
+        Back to Portfolio
+      </a>
+
+      <div class="flex items-center gap-6 mb-8">
+        <img src="/logos/togl.svg" alt="TOGL" style="height:48px" class="w-auto block dark:hidden" />
+        <img src="/logos/togl-dark.svg" alt="TOGL" style="height:48px" class="w-auto hidden dark:block" />
+        <span class="inline-flex items-center rounded-full bg-green-50 dark:bg-green-900/30 px-3 py-1 text-xs font-medium text-green-700 dark:text-green-400">Active</span>
+      </div>
+
+      <h1 class="text-4xl font-bold tracking-tight text-secondary-500 dark:text-white">TOGL</h1>
+      <p class="mt-4 text-xl text-secondary-400 dark:text-gray-300">
+        Depot flexibility software for electric fleets &mdash; charge for less, fit more vehicles onto the grid connection you already have, and still have every vehicle ready for its shift.
+      </p>
+
+      <div class="mt-8 flex flex-wrap gap-2">
+        {['Energy', 'EV Infrastructure', 'Fleet Tech', 'Grid Flexibility', 'B2B SaaS'].map(tag => (
+          <span class="inline-flex rounded-md bg-gray-100 dark:bg-accent-600 px-3 py-1.5 text-xs font-medium text-secondary-400 dark:text-gray-400">{tag}</span>
+        ))}
+      </div>
+
+      <div class="mt-12 prose prose-lg dark:prose-invert max-w-none">
+        <h2 class="text-2xl font-bold text-secondary-500 dark:text-white">Overview</h2>
+        <p class="text-secondary-400 dark:text-gray-300">
+          Depot electrification looks viable on paper and then fails in practice, because grid capacity, energy prices, and operational schedules are planned in isolation. TOGL treats depot charging as a control problem: it connects vehicle telematics, chargers, and tariff data, then schedules every charge in real time against the site's connection limit and each vehicle's departure time.
+        </p>
+        <p class="text-secondary-400 dark:text-gray-300">
+          The result is charging shifted into cheap, low-load windows without ever risking a vehicle missing its shift &mdash; turning a depot from a cost centre into a managed energy asset and deferring expensive grid upgrades. TOGL sells to fleet operators running vans and electric HGVs, to OEMs looking to improve total cost of ownership, and to energy suppliers and aggregators who need distributed flexibility.
+        </p>
+        <p class="text-secondary-400 dark:text-gray-300">
+          The founding team brings 60+ years across EV charging, mobility SaaS, fleet technology, and grid-scale clean energy, with prior ventures including a charge point platform scaled past 12,000 connectors and a fleet product with 36,000+ users.
+        </p>
+
+        <h2 class="text-2xl font-bold text-secondary-500 dark:text-white mt-10">How ExaCap Helps</h2>
+        <ul class="space-y-3 text-secondary-400 dark:text-gray-300">
+          <li>Embedded engineering team building the optimisation platform</li>
+          <li>Cloud infrastructure and production-ready deployment on day one</li>
+          <li>Technical strategy and fractional CTO guidance</li>
+          <li>Access to the ExaCap investor and advisor network</li>
+        </ul>
+
+        <h2 class="text-2xl font-bold text-secondary-500 dark:text-white mt-10">Key Metrics</h2>
+        <div class="not-prose grid grid-cols-2 md:grid-cols-3 gap-6 mt-6">
+          <div class="rounded-xl bg-secondary-50 dark:bg-accent-700 p-6 text-center">
+            <p class="text-2xl font-bold text-primary-500">Energy</p>
+            <p class="text-sm text-secondary-400 dark:text-gray-400 mt-1">Sector</p>
+          </div>
+          <div class="rounded-xl bg-secondary-50 dark:bg-accent-700 p-6 text-center">
+            <p class="text-2xl font-bold text-primary-500">Active</p>
+            <p class="text-sm text-secondary-400 dark:text-gray-400 mt-1">Status</p>
+          </div>
+          <div class="rounded-xl bg-secondary-50 dark:bg-accent-700 p-6 text-center">
+            <p class="text-2xl font-bold text-primary-500">Investment</p>
+            <p class="text-sm text-secondary-400 dark:text-gray-400 mt-1">Partnership Type</p>
+          </div>
+        </div>
+
+        <p class="mt-10 not-prose">
+          <a href="https://togl.co" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-medium text-primary-500 hover:text-primary-600">
+            Visit togl.co
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+        </p>
+      </div>
+    </div>
+  </section>
+</Layout>
